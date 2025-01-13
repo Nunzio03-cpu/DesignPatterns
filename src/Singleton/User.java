@@ -2,37 +2,39 @@ package Singleton;
 
 public class User {
     private String nome;
-    private int eta;
+    private Integer eta;
+    private static User instance;
 
-    // Costruttore di default (senza parametri)
-    public User() {
-        this.nome = "Nome di default";
-        this.eta = 18; // Età di default
+    private User() {
+        this.nome = "Default Name";
+        this.eta = 0;
     }
 
-    // Getter per il nome
+    public static User getInstance() {
+        if (instance == null) {
+            instance = new User();
+        }
+        return instance;
+    }
+
     public String getNome() {
         return nome;
     }
 
-    // Setter per il nome
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    // Getter per l'età
-    public int getEta() {
+    public Integer getEta() {
         return eta;
     }
 
-    // Setter per l'età
-    public void setEta(int eta) {
+    public void setEta(Integer eta) {
         this.eta = eta;
     }
 
-    // Funzione che stampa a video il nome e l'età
+    // Metodo per stampare le informazioni
     public void stampaInformazioni() {
-        System.out.println("Nome: " + nome);
-        System.out.println("Età: " + eta);
+        System.out.println("Nome: " + nome + ", Età: " + eta);
     }
 }

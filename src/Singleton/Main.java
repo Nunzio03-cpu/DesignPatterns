@@ -1,21 +1,16 @@
-import Singleton.User;
+package Singleton;
 
-public static void main(String[] args) {
-    // Creazione di un oggetto User con valori di default
-    User user1 = new User();
+public class Main {
+    public static void main(String[] args) {
+        User user1 = User.getInstance();
+        System.out.println("Informazioni di default:");
+        user1.stampaInformazioni();
 
-    // Stampare le informazioni di user1 (valori di default)
-    System.out.println("Informazioni di User1 (default):");
-    user1.stampaInformazioni();
+        user1.setNome("Mario");
+        user1.setEta(30);
 
-    // Creazione di un altro oggetto User
-    User user2 = new User();
-
-    // Modificare le informazioni di user2
-    user2.setNome("Luca");
-    user2.setEta(25);
-
-    // Stampare le informazioni di user2 dopo la modifica
-    System.out.println("\nInformazioni di User2 (modificato):");
-    user2.stampaInformazioni();
+        User user2 = User.getInstance();
+        System.out.println("Informazioni modificate:");
+        user2.stampaInformazioni();
+    }
 }
